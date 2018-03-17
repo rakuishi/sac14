@@ -2,7 +2,7 @@ import requests
 import json
 import pandas as pd
 
-def btcusd():
+def cryptowat():
   res = _get_response()
   labels = ['unixtime', 'open', 'high', 'low', 'close', '_', '_']
   df = pd.DataFrame.from_records(res, columns=labels).set_index('unixtime')
