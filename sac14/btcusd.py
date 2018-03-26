@@ -3,7 +3,7 @@ import json
 import pandas as pd
 from datetime import datetime, timedelta
 
-def cryptowat(periods = 60):
+def cryptowat(periods = 300):
   url = f'https://api.cryptowat.ch/markets/bitmex/btcusd-perpetual-futures/ohlc?after=1&periods={periods}'
   res = json.loads(requests.get(url).text)['result'][f'{periods}']
   labels = ['unixtime', 'open', 'high', 'low', 'close', '_', '_']
