@@ -57,6 +57,7 @@ def timer(x):
     now = datetime.now()
     if now.second == x and now.minute % 5 == 0:
       break
+    time.sleep(0.8)
 
 def main():
   if sys.argv[1] == 'predict':

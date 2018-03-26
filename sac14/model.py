@@ -1,5 +1,5 @@
-from sklearn.preprocessing import MinMaxScaler
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, Activation, SimpleRNN, LSTM
 
