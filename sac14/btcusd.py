@@ -11,11 +11,12 @@ def cryptowat(periods = 300):
   df.drop(['open', 'high', 'low', '_'], inplace=True, axis=1)
   return _supplement_zero_value(df)
 
-def bitmex(resolution = 5):
+def bitmex(resolution = 5, debug = False):
   now = datetime.now()
   to_unixtime = now.strftime('%s')
   from_unixtime = (now - timedelta(weeks=1)).strftime('%s')
-  url = f'https://www.bitmex.com/api/udf/history?symbol=XBTUSD&resolution={resolution}&from={from_unixtime}&to={to_unixtime}'
+  base = 'testnet' if debug else 'www'
+  url = f'https://{base}.bitmex.com/api/udf/history?symbol=XBTUSD&resolution={resolution}&from={from_unixtime}&to={to_unixtime}'
   res = json.loads(requests.get(url).text)
   df = pd.DataFrame(data=res).set_index('t')
   df.drop(['h', 'l', 'o', 's', 'v'], inplace=True, axis=1)
